@@ -1,0 +1,37 @@
+models:
+  Membre:
+    numAdherent: string:50 unique
+    nom: string:100
+    prenom: string:100
+    email: string:255 unique
+    mot_de_passe: string:255
+    date_inscription: timestamp nullable default:CURRENT_TIMESTAMP
+
+    relationships:
+      hasMany: DemandeCredit
+
+  DemandeCredit:
+    membre_id: id foreign:membres.id onDelete:cascade
+    montant: decimal:10,2
+    date_demande: timestamp nullable default:CURRENT_TIMESTAMP
+    statut: enum:'En attente','Approuvée','Refusée' default:'En attente'
+
+    relationships:
+      belongsTo: Membre
+
+  ProduitFinancier:
+    nom: string:100
+    description: text nullable
+    conditions: text nullable
+    avantages: text nullable
+    date_creation: timestamp nullable default:CURRENT_TIMESTAMP
+
+  Contenu:
+    titre: string:200
+    type: enum:'Article','Actualité','Événement'
+    contenu: text
+    date_publication: timestamp nullable default:CURRENT_TIMESTAMP
+    auteur_id: id foreign:administrateurs.id onDelete:null onUpdate:cascade 
+
+    relationships:
+      belongsTo: Administrateur
