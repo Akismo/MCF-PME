@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
 
         Schema::create('contenus', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('titre', 200);
-            $table->enum('type', ["'Article'","'Actualit\u00e9'","'\u00c9v\u00e9nement'"]);
+            $table->integer('auteur_id')->unsigned();
+            $table->enum('type', ['Article','Actualité','Événement']);
             $table->text('contenu');
-            $table->timestamp('date_publication')->nullable()->default('CURRENT_TIMESTAMP');
-            $table->foreignId('auteur_id')->constrained('administrateurs')->onDelete('set null')->cascadeOnUpdate();
-            $table->foreignId('administrateur_id');
+            $table->timestamp('date_publication')->nullable()->useCurrent();
+            $table->foreign('auteur_id')->references('id')->on('users');
             $table->timestamps();
         });
 
-        Schema::enableForeignKeyConstraints();
     }
 
     /**

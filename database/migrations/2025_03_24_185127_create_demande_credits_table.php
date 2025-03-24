@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-
         Schema::create('demande_credits', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('membre_id')->constrained()->cascadeOnDelete();
-            $table->decimal('montant', 10, 2);
-            $table->timestamp('date_demande')->nullable()->default('CURRENT_TIMESTAMP');
-            $table->enum('statut', ["'En attente'","'Approuv\u00e9e'","'Refus\u00e9e'"])->default('En attente');
+            $table->increments('id');
+            $table->integer('membre_id')->unsigned();
+            $table->decimal('montant', 8, places: 2);
+            $table->timestamp('date_demande')->nullable()->useCurrent();
+            $table->enum('statut', ['En attente', 'Approuvée', 'Refusée'])->default('En attente');
             $table->timestamps();
-        });
 
-        Schema::enableForeignKeyConstraints();
+            $table->foreign('membre_id')->references('id')->on('membres');
+        });
     }
 
     /**
