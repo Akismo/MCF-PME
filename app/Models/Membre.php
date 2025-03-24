@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Membre extends Model
+
+class Membre extends Authenticatable
 {
     use HasFactory;
 
@@ -16,6 +18,9 @@ class Membre extends Model
      *
      * @var array
      */
+
+    protected $guard = 'membre';
+
     protected $fillable = [
         'numAdherent',
         'nom',
@@ -34,6 +39,16 @@ class Membre extends Model
         'id' => 'integer',
         'date_inscription' => 'timestamp',
     ];
+
+    protected $hidden = [
+        'password',
+        'remember_token'
+    ];
+
+    public function setPassordAttribute($value)
+    {
+        $this->attributes['password'] =  password_hash($value, PASSWORD_DEFAULT);
+    }
 
     public function demandeCredits(): HasMany
     {
