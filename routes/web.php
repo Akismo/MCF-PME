@@ -20,26 +20,31 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('membre')->group(function (){
+    Route::get('/login',[MembreController::class, 'login'])->name('membre_login');
+    Route::get('/logout', [MembreController::class, 'logout'])->name('membre_logout');
+    Route::get('/register', [MembreController::class, 'register'])->name('membre_register');
+    Route::post('/register-submit', [MembreController::class, 'register_submit'])->name('membre_register_submit');
+    Route::post('/logout', [MembreController::class, 'logout'])->name('membre_logout');
+    Route::post('/login-submit', [MembreController::class, 'login_submit'])->name('membre_login_submit');
+});
+
 Route::middleware('membre')->group(function (){
     Route::get('membre/dashboard',[MembreController::class, 'dashboard'])->name('membre_dashboard');
 
-    Route::prefix('etudiant')->group(function (){
-        Route::get('/login',[MembreController::class, 'login'])->name('membre_login');
-        Route::get('/logout', [MembreController::class, 'logout'])->name('membre_logout');
-        Route::post('/logout', [MembreController::class, 'logout'])->name('membre_logout');
-        Route::post('/login-submit', [MembreController::class, 'login-submit'])->name('membre_login_submit');
-    });
+});
+
+
+Route::prefix('administrateur')->group(function () {
+    Route::get('/login', action: [AdministrateurController::class, 'login'])->name('administrateur_login');
+    Route::get('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
+    Route::post('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
+    Route::post('/login-submit', [AdministrateurController::class, 'login_submit'])->name('administrateur_login_submit');
 });
 
 Route::middleware('administrateur')->group(function () {
     Route::get('administrateur/dashboard', [AdministrateurController::class, 'dashboard'])->name('administrateur_dashboard');
-
-    Route::prefix('administrateur')->group(function () {
-        Route::get('/login', [AdministrateurController::class, 'login'])->name('administrateur_login');
-        Route::get('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
-        Route::post('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
-        Route::post('/login-submit', [AdministrateurController::class, 'login-submit'])->name('administrateur_login_submit');
-    });
     
 });
+
 require __DIR__.'/auth.php';

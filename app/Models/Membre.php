@@ -26,7 +26,7 @@ class Membre extends Authenticatable
         'nom',
         'prenom',
         'email',
-        'mot_de_passe',
+        'password',
         'date_inscription',
     ];
 

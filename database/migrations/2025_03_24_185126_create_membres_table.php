@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('membres', function (Blueprint $table) {
             $table->increments('id');
             $table->string('numAdherent', 50)->unique();
-            $table->string('name', 100);
+            $table->string('nom', 100);
+            $table->string('prenom', 100);
             $table->string('email', 255)->unique();
             $table->string('password', 255);
             $table->timestamp('date_inscription')->nullable()->useCurrent();

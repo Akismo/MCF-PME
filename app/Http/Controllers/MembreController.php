@@ -21,6 +21,37 @@ class MembreController extends Controller
         return view('MembreLogin');
     }
 
+    public function register()
+    {
+        return view('register');
+    }
+
+    // Traiter l'inscription du membre
+    public function register_submit(Request $request)
+    {
+        // Validation des champs du formulaire
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|unique:membres,email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Création d'un nouveau membre
+        $membre = Membre::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+            'mot_de_passe' => bcrypt($request->password),
+            'date_inscription' => now(),
+        ]);
+
+        // Connexion automatique après inscription
+        auth()->guard('membre')->login($membre);
+
+        return redirect()->route('membre_dashboard')->with('success', 'Inscription réussie, vous êtes connecté!');
+    }
+
     public function login_submit(Request $request) {
 
         $request->validate([
