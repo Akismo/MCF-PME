@@ -12,7 +12,18 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('acceuil');
+
+Route::get('/service', function () {
+    return view('services');
+})->name('services');
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -58,9 +69,7 @@ Route::post('/contact-submit', [ContactController::class, 'submit'])->name('cont
 
 
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+
 
 
 

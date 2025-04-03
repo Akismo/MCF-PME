@@ -1,10 +1,11 @@
 
 
-@extends('services.app')
+@extends('acceuil.app')
 
-@section('title', 'services - Mon Site')
+@section('title', 'Services - Mon Site')
 
 @section('content')
+
     <div class="container">
         <h1>Nos Services</h1>
         <p>Voici les services que nous proposons pour répondre à vos besoins :</p>

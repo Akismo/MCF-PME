@@ -29,9 +29,9 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Acceuil</a></li>
+                    <li><a href="{{ route('acceuil') }}" class="{{ request()->routeIs('acceuil') ? 'active' : '' }}">Acceuil</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="{{ route('services') }}">services</a></li>
+                    <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
                     <li><a href="{{ route('membre_login') }}">Espace Personnel</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
