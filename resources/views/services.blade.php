@@ -1,6 +1,6 @@
 
 
-@extends('services.app')
+@extends('acceuil.app')
 
 @section('title', 'services - Mon Site')
 
