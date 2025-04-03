@@ -31,7 +31,7 @@
                 <ul>
                     <li><a href="#hero" class="active">Acceuil</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="{{ route('services') }}">services</a></li>
                     <li><a href="{{ route('membre_login') }}">Espace Personnel</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
@@ -60,5 +60,4 @@
             </nav>
         </div>
     </div>
-
 </header>

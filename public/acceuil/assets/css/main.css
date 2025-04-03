@@ -318,6 +318,23 @@ h6 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
+/* Effet vague animé */
+.wave {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg"><path fill="%232c3e50" d="M 0 50 Q 250 0 500 50 T 1000 50 L 1000 100 L 0 100 Z"></path></svg>');
+  background-size: 1000px 100px;
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1272,81 +1289,100 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  padding: 40px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-  height: 100%;
+/* Section Nos Services */
+#services {
+  padding: 60px 0;
+  background-color: #f9f9f9;
 }
 
-.services .service-item .icon {
-  width: 48px;
-  height: 48px;
-  position: relative;
-  margin-bottom: 50px;
+#services .section-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.services .service-item .icon i {
-  color: color-mix(in srgb, var(--heading-color), transparent 30%);
-  font-size: 56px;
-  transition: ease-in-out 0.3s;
-  z-index: 2;
-  position: relative;
-}
-
-.services .service-item .icon:before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  background: color-mix(in srgb, var(--heading-color), transparent 95%);
-  border-radius: 50px;
-  z-index: 1;
-  top: 10px;
-  right: -20px;
-  transition: 0.3s;
-}
-
-.services .service-item h3 {
-  color: color-mix(in srgb, var(--heading-color), transparent 20%);
+#services h2 {
+  font-size: 36px;
   font-weight: 700;
-  margin: 0 0 20px 0;
-  padding-bottom: 8px;
+  color: #333;
+}
+
+#services p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+#services .box {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#services .box .icon {
+  font-size: 40px;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+#services .box h3 {
   font-size: 22px;
-  position: relative;
-  display: inline-block;
-  border-bottom: 4px solid color-mix(in srgb, var(--heading-color), transparent 90%);
-  transition: 0.3s;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
 }
 
-.services .service-item p {
-  line-height: 24px;
+#services .box p {
   font-size: 14px;
-  margin-bottom: 0;
+  color: #777;
+  margin-bottom: 20px;
 }
 
-.services .service-item .readmore {
-  margin-top: 15px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+#services .box .readmore {
+  color: #FFD700;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
-.services .service-item:hover .icon i {
-  color: var(--heading-color);
+#services .box .readmore:hover {
+  color: #ff6200;
 }
 
-.services .service-item:hover .icon:before {
-  background: color-mix(in srgb, var(--accent-color), transparent 50%);
+#services .d-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.services .service-item:hover h3 {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 10%);
-  color: var(--heading-color);
+@media (max-width: 768px) {
+  #services .box {
+      width: 100%;
+      max-width: 350px;
+  }
 }
 
-.services .service-item:hover .readmore {
-  color: var(--accent-color);
+@media (max-width: 480px) {
+  #services h2 {
+      font-size: 28px;
+  }
+
+  #services p {
+      font-size: 14px;
+  }
 }
+
 
 /*--------------------------------------------------------------
 # Testimonials Section
@@ -1898,68 +1934,188 @@ section,
   margin-bottom: 0;
 }
 
+
+/* Style global pour la section */
+.centre-ressources {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Grid layout pour les cartes */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style pour chaque carte de téléchargement */
+.download-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge "Nouveau" */
+.badge {
+  display: inline-block;
+  background-color: #ff6347;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 5px;
+}
+
+/* En-tête de la carte */
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-header .file-icon {
+  font-size: 3rem;
+  color: #ff6347;
+  margin-right: 20px;
+}
+
+.card-header div {
+  flex: 1;
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.card-header p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Lien de téléchargement */
+.download-link {
+  font-size: 1.1rem;
+  color: #ff6347;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.download-link:hover {
+  color: #d45438;
+}
+
+.download-link i {
+  margin-left: 8px;
+}
+
+/* AOS animation settings */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+}
+
+
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .info-container {
-  background-color: var(--accent-color);
-  height: 100%;
-  padding: 20px;
-}
-
-.contact .info-item {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 20px;
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--contrast-color), transparent 90%);
-}
-
-.contact .info-item:last-child {
-  margin-bottom: 0;
-}
-
-.contact .info-item i {
-  font-size: 20px;
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--contrast-color), transparent 80%);
-  width: 44px;
-  height: 44px;
+/* Style des boîtes contenant les informations de contact */
+.info-item-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  margin-right: 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: left;
 }
 
-.contact .info-item h3 {
-  color: var(--contrast-color);
-  font-size: 20px;
-  padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
+.info-item-box:hover {
+  transform: translateY(-5px);  /* Légère animation au survol */
 }
 
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
+.info-item-box i {
+  font-size: 2rem;
+  color: #ff6347;  /* Couleur de l'icône */
+  margin-bottom: 10px;
 }
 
-.contact .info-item:hover i {
-  background: var(--contrast-color);
-  color: var(--accent-color);
+.info-item-box h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.contact .php-email-form {
-  background-color: var(--surface-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 100%;
-  padding: 30px;
+.info-item-box p {
+  font-size: 1rem;
+  color: #666;
 }
+
+/* Pour aligner horizontalement les boîtes de contact en bas */
+.row.justify-content-center {
+  display: flex;
+  justify-content: space-between; /* Espacement horizontal entre les boîtes */
+  flex-wrap: wrap; /* S'assurer que les boîtes s'ajustent en cas de petit écran */
+}
+
+.col-md-4 {
+  flex: 1 1 30%; /* Les boîtes prennent 30% de l'espace sur les grands écrans */
+  max-width: 30%;  /* S'assurer qu'elles ne dépassent pas 30% */
+  padding: 10px;
+}
+
+/* Pour rendre la section responsive */
+@media (max-width: 768px) {
+  .col-md-4 {
+      flex: 1 1 100%; /* Sur les petits écrans, les boîtes prennent toute la largeur */
+      max-width: 100%;
+  }
+}
+
+
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],

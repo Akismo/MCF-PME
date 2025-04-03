@@ -62,8 +62,9 @@
 
                 </div>
             </div>
+            <div class="wave"></div>
         </div>
-    
+        
     <section class="container py-5 devenir-client">
                 <div class="text-center mb-4">
                     <h2>Comment devenir client </br> MCF-PME ?</h2>
@@ -111,89 +112,70 @@
 
 
 
-    <section id="" class="services section">
+    <!-- Section nos services -->
+<section id="services" class="services section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Nos services</h2>
+        <p>Découvrez nos solutions adaptées à vos besoins pour développer votre entreprise et simplifier votre quotidien.</p>
+    </div><!-- End Section Title -->
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Nos Services</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-        <div class="row gy-4">
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-                <div class="icon">
-                <i class="bi bi-activity"></i>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                <!-- Service 1 -->
+                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h3>Packs & Crédits Rattachés</h3>
+                    <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
+                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
-                <h3>Nesciunt Mete</h3>
-                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-            </div><!-- End Service Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-                <div class="icon">
-                <i class="bi bi-broadcast"></i>
+                <!-- Service 2 -->
+                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon">
+                        <i class="bi bi-piggy-bank"></i>
+                    </div>
+                    <h3>Épargne</h3>
+                    <p>C’est maintenant qu’il faut penser à mettre de côté pour en profiter plus tard. Différentes solutions d’épargne vous sont proposées.</p>
+                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
-                <h3>Eosle Commodi</h3>
-                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-            </div><!-- End Service Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-                <div class="icon">
-                <i class="bi bi-easel"></i>
+                <!-- Service 3 -->
+                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon">
+                        <i class="bi bi-credit-card"></i>
+                    </div>
+                    <h3>Monétique</h3>
+                    <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
+                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
-                <h3>Ledo Markt</h3>
-                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-            </div><!-- End Service Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-                <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
+                <!-- Service 4 -->
+                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Assurance</h3>
+                    <p>Nous comprenons vos besoins de simplicité et de liberté pour mener à bien vos différents projets et faire des économies.</p>
+                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
-                <h3>Asperiores Commodit</h3>
-                <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-            </div><!-- End Service Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-                <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
+                <!-- Service 5 -->
+                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <h3>Transfert d'Argent</h3>
+                    <p>Parce que nous comprenons vos besoins de rapidité et de flexibilité, nous avons conçu des produits pour vous faciliter le quotidien.</p>
+                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
-                <h3>Velit Doloremque</h3>
-                <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-                <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-                </div>
-                <h3>Dolori Architecto</h3>
-                <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-                <a href="service-details.html" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-            </div><!-- End Service Item -->
-
         </div>
+    </div>
+</section><!-- End Section Nos Services -->
 
-        </div>
-
-    </section>
 
     <section id="" class="team section">
 
@@ -269,41 +251,6 @@
     </section>
 
     
-
-    <section id="contact" class="contact section">
-        <form action="{{ route('contact.submit') }}" method="post" class="php-email-form" data-aos="fade" data-aos-delay="100">
-            @csrf  <!-- Protection CSRF -->
-
-            <div class="row gy-4">
-                <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" placeholder="Votre e-mail" required>
-                </div>
-
-                <div class="col-md-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Objet" required>
-                </div>
-
-                <div class="col-md-12">
-                    <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                    <div class="loading">Veuillez patienter...</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Merci, votre message a été envoyé avec succès !</div>
-
-                    <button type="submit">Envoyer le message</button>
-                </div>
-            </div>
-        </form>
-    </section>
-
-
-
 {{-- Section Content --}}
     <section id="" class="centre-ressources">
         <div class="container section-title" data-aos="fade-up">
@@ -350,6 +297,102 @@
             </article>
         </div>
     </section>
+
+
+    <section id="contact" class="contact section">
+    <form action="{{ route('contact.submit') }}" method="post" class="php-email-form" data-aos="fade" data-aos-delay="100">
+        @csrf  <!-- Protection CSRF -->
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Contact</h2>
+            <p>Nous serions heureux de recevoir vos messages et questions. N'hésitez pas à nous contacter !</p>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gx-lg-0 gy-4">
+                
+                <!-- Formulaire de contact -->
+                <div class="col-lg-8">
+                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade" data-aos-delay="100">
+                        <div class="row gy-4">
+
+                            <!-- Champ Nom -->
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                            </div>
+
+                            <!-- Champ Email -->
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" placeholder="Votre Email" required>
+                            </div>
+
+                            <!-- Champ Sujet -->
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="subject" placeholder="Sujet" required>
+                            </div>
+
+                            <!-- Champ Message -->
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="8" placeholder="Votre message" required></textarea>
+                            </div>
+
+                            <!-- Zone pour les messages d'état -->
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Veuillez patienter...</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Merci, votre message a bien été envoyé !</div>
+
+                                <button type="submit">Envoyer le message</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+            </div>
+        </div>
+
+        <!-- Informations de contact dans des boîtes -->
+        <div class="container" data-aos="fade-up" data-aos-delay="200">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="info-item-box d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>A108 Adam Street, New York, NY 535022</p>
+                        </div>
+                    </div><!-- End Info Item Box -->
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-item-box d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>(225) 22 41 52 36</p>
+                        </div>
+                    </div><!-- End Info Item Box -->
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-item-box d-flex" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>mcfpme10@gmail.com</p>
+                        </div>
+                    </div><!-- End Info Item Box -->
+                </div>
+            </div><!-- End Row -->
+        </div><!-- End Container -->
+
+    </form>
+</section><!-- /Contact Section -->
+
+
+
     
 
     <div>{{ optional(Auth::user())->name ?? 'Invité' }}</div>

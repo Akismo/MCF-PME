@@ -1,63 +1,70 @@
 <footer id="footer" class="footer accent-background">
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <!-- Section Logo & Description -->
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <img src="assets/img/logo.png" alt="MCF-PME Logo" width="120" class="me-2">
+                    <span class="sitename" style="color: #FFD700; font-weight: 700;">MCF-PME</span>
+                </a>
+                <p class="mt-3">Système de financement innovant dédié à l'inclusion bancaire en Afrique. Tradition et expertise au service du développement.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="#" class="cred-social"><i class="bi bi-globe2"></i></a>
+                    <a href="#" class="cred-social"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="cred-social"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="cred-social"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
 
-  <div class="container footer-top">
-    <div class="row gy-4">
-      <div class="col-lg-5 col-md-12 footer-about">
-        <a href="{{ (asset('acceuil/assets/img/logo.png')) }}" class="logo d-flex align-items-center">
-          <span class="sitename">Impact</span>
-        </a>
-        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-        <div class="social-links d-flex mt-4">
-          <a href="#"><i class="bi bi-twitter-x"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
+            <!-- Section Notre Structure -->
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Notre Structure</h4>
+                <ul>
+                    <li><a href="#"><i class="bi bi-chevron-right me-1"></i>Nos Origines</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right me-1"></i>Notre Vision</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right me-1"></i>Notre Gouvernance</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right me-1"></i>Transparence</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right me-1"></i>Carrières</a></li>
+                </ul>
+            </div>
+
+            <!-- Section Services -->
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Nos Solutions</h4>
+                <ul>
+                    <li><a href="#"><i class="bi bi-piggy-bank me-1"></i>Microcrédit</a></li>
+                    <li><a href="#"><i class="bi bi-shield-check me-1"></i>Épargne Sécurisée</a></li>
+                    <li><a href="#"><i class="bi bi-people me-1"></i>Finance Communautaire</a></li>
+                    <li><a href="#"><i class="bi bi-graph-up me-1"></i>Conseil Financier</a></li>
+                    <li><a href="#"><i class="bi bi-phone me-1"></i>Banking Mobile</a></li>
+                </ul>
+            </div>
+
+            <!-- Section Contact -->
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Nous Contacter</h4>
+                <p class="mb-1">Abidjan, Deux Plateaux</p>
+                <p>Carrefour Duncan</p>
+                <div class="opening-hours mt-3">
+                    <p class="mb-1"><strong>Horaires :</strong></p>
+                    <p>Lun-Ven: 8H-15H30</p>
+                    <p>Sam: 9H-12H30</p>
+                </div>
+                <p class="mt-3"><strong>Tél :</strong> <span>+225 27 22 55 10 10</span></p>
+                <p><strong>Email :</strong> <span>infos@credafrica.com</span></p>
+            </div>
         </div>
-      </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Terms of service</a></li>
-          <li><a href="#">Privacy policy</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Product Management</a></li>
-          <li><a href="#">Marketing</a></li>
-          <li><a href="#">Graphic Design</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-        <h4>Contact Us</h4>
-        <p>A108 Adam Street</p>
-        <p>New York, NY 535022</p>
-        <p>United States</p>
-        <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-        <p><strong>Email:</strong> <span>info@example.com</span></p>
-      </div>
-
     </div>
-  </div>
 
-  <div class="container copyright text-center mt-4">
-    <p>© <span>Copyright</span> <strong class="px-1 sitename">Impact</strong> <span>All Rights Reserved</span></p>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you've purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    <!-- Section Copyright -->
+    <div class="container copyright text-center mt-4 py-3" style="background: #FFD700;">
+        <p class="mb-0">© 2025<strong class="px-1" style="color: #ff6200;">MCF-PME</strong> - Tous droits réservés</p>
+        <div class="credits mt-2">
+            <a href="#" class="text-light">Mentions légales</a> | 
+            <a href="#" class="text-light">Protection des données</a> | 
+            <a href="#" class="text-light">Accessibilité</a>
+        </div>
     </div>
-  </div>
-
 </footer>
+
+     
