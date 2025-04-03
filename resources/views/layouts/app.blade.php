@@ -27,6 +27,24 @@
                 </header>
             @endisset
 
+
+<head>
+    <!-- ... Autres balises meta ... -->
+    <link rel="stylesheet" href="{{ asset('css') }}">
+</head>
+
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/centre-ressources.css') }}">
+@endsection
+
+@section('title', 'Contact Us')  <!-- Titre spécifique à cette page -->
+
+@section('content')
+  <h1>Contact Us</h1>
+  <!-- Formulaire ou contenu spécifique à cette page -->
+@endsection
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

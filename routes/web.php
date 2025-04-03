@@ -5,6 +5,7 @@ use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Administrateur;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,5 +47,7 @@ Route::middleware('administrateur')->group(function () {
     Route::get('administrateur/dashboard', [AdministrateurController::class, 'dashboard'])->name('administrateur_dashboard');
     
 });
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 require __DIR__.'/auth.php';

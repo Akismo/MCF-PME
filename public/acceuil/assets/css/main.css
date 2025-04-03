@@ -837,9 +837,9 @@ section,
 .section {
   color: var(--default-color);
   background-color: #fff
-  padding: 60px 0;
-  scroll-margin-top: 112px;
-  overflow: clip;
+ 
+  
+  
 }
 
 @media (max-width: 1199px) {
@@ -2850,4 +2850,69 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+/****************************
+ * Section "Devenir Client"
+ ****************************/
+
+/* Applique des styles à la section complète */
+.devenir-client {
+  background-color: #fff;
+  padding: 60px 0; /* Ajuste le padding en haut et en bas */
+}
+
+/* Titre principal */
+.devenir-client h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Paragraphe d’intro sous le titre */
+.devenir-client > .text-center p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Chaque bloc d’étape */
+.devenir-client .step {
+  max-width: 300px; /* Optionnel : limite la largeur de chaque colonne */
+}
+
+/* Image d’illustration dans chaque étape */
+.devenir-client .step img {
+  max-height: 150px; /* Gère la hauteur max des images */
+  margin-bottom: 15px;
+}
+
+/* Numéro de l’étape */
+.devenir-client .step h5 {
+  color: #dc8b35;    /* Rouge Bootstrap */
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Texte de description */
+.devenir-client .step p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Bouton "Devenir client" */
+.devenir-client .btn.btn-danger {
+  background-color: #dc9135;
+  border-color: #dc3545;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+/* Effet hover sur le bouton */
+.devenir-client .btn.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
 }

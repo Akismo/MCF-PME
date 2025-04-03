@@ -36,6 +36,13 @@
     @yield('content')
   </main>
 
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
   <!-- Inclusion du footer -->
   @include('acceuil.footer')
 

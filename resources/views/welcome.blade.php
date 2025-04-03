@@ -63,8 +63,52 @@
                 </div>
             </div>
         </div>
+    
+     <section class="container py-5 devenir-client">
+                <div class="text-center mb-4">
+                    <h2>Comment devenir client </br> MCF-PME ?</h2>
+                    <p>Vous souhaitez devenir client MCF-PME ? Suivez ces trois étapes :</p>
+                </div>
 
-    </section><!-- /Hero Section -->
+                <div class="row justify-content-center">
+                    <!-- Étape 1 -->
+                    <div class="col-md-4 d-flex flex-column align-items-center text-center mb-4 mb-md-0 step">
+                        <img src="{{ asset('images/etape1.png') }}" alt="Étape 1" class="img-fluid mb-3">
+                        <h5 class="mb-2">1</h5>
+                        <p class="mb-0">
+                            Je renseigne le formulaire de préouverture de compte
+                            sur le site web de Cofina Côte d'Ivoire.
+                        </p>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="col-md-4 d-flex flex-column align-items-center text-center mb-4 mb-md-0 step">
+                        <img src="{{ asset('images/etape2.png') }}" alt="Étape 2" class="img-fluid mb-3">
+                        <h5 class="mb-2">2</h5>
+                        <p class="mb-0">
+                            Je suis contacté par l'équipe commerciale
+                            pour confirmation de l'ouverture de mon compte.
+                        </p>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="col-md-4 d-flex flex-column align-items-center text-center step">
+                        <img src="{{ asset('images/etape3.png') }}" alt="Étape 3" class="img-fluid mb-3">
+                        <h5 class="mb-2">3</h5>
+                        <p class="mb-0">
+                            Je me rends en agence pour finaliser mon ouverture de compte
+                            muni des documents nécessaires.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-danger">
+                        Devenir client
+                    </a>
+                </div>
+     </section>
+
 
 
     <section id="" class="services section">
@@ -151,7 +195,6 @@
 
     </section>
 
-
     <section id="" class="team section">
 
         <div class="container section-title" data-aos="fade-up">
@@ -224,5 +267,96 @@
         </div>
 
     </section>
+
+    @extends('layouts.app')
+
+    
+
+<section id="contact" class="contact section">
+<form action="{{ route('contact.submit') }}" method="post" class="php-email-form" data-aos="fade" data-aos-delay="100">
+    @csrf  <!-- Protection CSRF -->
+
+    <div class="row gy-4">
+        <div class="col-md-6">
+            <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+        </div>
+
+        <div class="col-md-6">
+            <input type="email" class="form-control" name="email" placeholder="Votre e-mail" required>
+        </div>
+
+        <div class="col-md-12">
+            <input type="text" class="form-control" name="subject" placeholder="Objet" required>
+        </div>
+
+        <div class="col-md-12">
+            <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <div class="loading">Veuillez patienter...</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Merci, votre message a été envoyé avec succès !</div>
+
+            <button type="submit">Envoyer le message</button>
+        </div>
+    </div>
+    @extends('layouts.app')
+</form>
+
+</section><!-- /Contact Section -->
+
+
+
+{{-- Section Content --}}
+    <section id="" class="centre-ressources">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Centre de Ressources</h2>
+        <p>Téléchargez nos documents d'information et guides pratiques pour une meilleure utilisation de vos services mutuels.</p>
+    </div><!-- End Section Title -->
+
+    <div class="download-grid">
+        <!-- Carte 1 -->
+        <article class="download-card">
+            <span class="badge">Nouveau</span>
+            <div class="card-header">
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div>
+                    <h3>Guide Adhérent 2024</h3>
+                    <p>Guide complet pour les adhérents de notre service mutuel</p>
+                    <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </article>
+        <!-- Carte 2 -->
+        <article class="download-card">
+            <span class="badge">Nouveau</span>
+            <div class="card-header">
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div>
+                    <h3>Guide Adhérent 2023</h3>
+                    <p>Guide complet pour les adhérents de notre service mutuel</p>
+                    <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </article>
+        <!-- Carte 3 -->
+        <article class="download-card">
+            <span class="badge">Nouveau</span>
+            <div class="card-header">
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div>
+                    <h3>Guide Adhérent 2022</h3>
+                    <p>Guide complet pour les adhérents de notre service mutuel</p>
+                    <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+    </section>
+    
+
+    <div>{{ optional(Auth::user())->name ?? 'Invité' }}</div>
+
 
 @endsection
