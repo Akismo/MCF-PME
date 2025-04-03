@@ -6,7 +6,9 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Administrateur;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ServiceController;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,7 +54,18 @@ Route::middleware('administrateur')->group(function () {
 Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 
-// Route pour afficher la page des services (avec la section Hero)
-Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+
+
+
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
+
+
+
+
+  
+
 
 require __DIR__.'/auth.php';
