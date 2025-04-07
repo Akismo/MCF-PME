@@ -33,22 +33,17 @@
                     
                     <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
                     <li><a href="{{ route('membre_login') }}">Espace Personnel</a></li>
-                    
-                    
                     <li class="dropdown">
-                        
-                            
-                                <a href="#"><span>MCF-PME</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
+                                <a href="{{ route('mcf-pme') }}" class="{{ request()->routeIs('mcf-pme') ? 'active' : '' }}"><span>MCF-PME</span></a>
+                                <!-- <ul>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="{{ url('/blog') }}">Blog</a></li>
                                     <li><a href="#">Deep Dropdown 3</a></li>
                                     <li><a href="#">Deep Dropdown 4</a></li>
                                     <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            
+                                </ul> --> 
                     </li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

@@ -113,68 +113,68 @@
 
 
     <!-- Section nos services -->
-<section id="services" class="services section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Nos services</h2>
-        <p>Découvrez nos solutions adaptées à vos besoins pour développer votre entreprise et simplifier votre quotidien.</p>
-    </div><!-- End Section Title -->
+    <section id="services" class="services section">
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Nos services</h2>
+            <p>Découvrez nos solutions adaptées à vos besoins pour développer votre entreprise et simplifier votre quotidien.</p>
+        </div><!-- End Section Title -->
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="d-flex flex-wrap justify-content-center gap-4">
-                <!-- Service 1 -->
-                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon">
-                        <i class="bi bi-box-seam"></i>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <!-- Service 1 -->
+                    <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h3>Packs & Crédits Rattachés</h3>
+                        <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
+                        <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                     </div>
-                    <h3>Packs & Crédits Rattachés</h3>
-                    <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
-                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
-                </div>
 
-                <!-- Service 2 -->
-                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon">
-                        <i class="bi bi-piggy-bank"></i>
+                    <!-- Service 2 -->
+                    <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon">
+                            <i class="bi bi-piggy-bank"></i>
+                        </div>
+                        <h3>Épargne</h3>
+                        <p>C’est maintenant qu’il faut penser à mettre de côté pour en profiter plus tard. Différentes solutions d’épargne vous sont proposées.</p>
+                        <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                     </div>
-                    <h3>Épargne</h3>
-                    <p>C’est maintenant qu’il faut penser à mettre de côté pour en profiter plus tard. Différentes solutions d’épargne vous sont proposées.</p>
-                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
-                </div>
 
-                <!-- Service 3 -->
-                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon">
-                        <i class="bi bi-credit-card"></i>
+                    <!-- Service 3 -->
+                    <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <h3>Monétique</h3>
+                        <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
+                        <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                     </div>
-                    <h3>Monétique</h3>
-                    <p>Nous savons vos besoins de trésorerie pour développer votre entreprise et accroître vos parts de marché. Voilà pourquoi des packs dédiés ont été pensés pour vous, nos héros de l’entreprenariat.</p>
-                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
-                </div>
 
-                <!-- Service 4 -->
-                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon">
-                        <i class="bi bi-shield-check"></i>
+                    <!-- Service 4 -->
+                    <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3>Assurance</h3>
+                        <p>Nous comprenons vos besoins de simplicité et de liberté pour mener à bien vos différents projets et faire des économies.</p>
+                        <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                     </div>
-                    <h3>Assurance</h3>
-                    <p>Nous comprenons vos besoins de simplicité et de liberté pour mener à bien vos différents projets et faire des économies.</p>
-                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
-                </div>
 
-                <!-- Service 5 -->
-                <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="500">
-                    <div class="icon">
-                        <i class="bi bi-cash-coin"></i>
+                    <!-- Service 5 -->
+                    <div class="box service-box text-center" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <h3>Transfert d'Argent</h3>
+                        <p>Parce que nous comprenons vos besoins de rapidité et de flexibilité, nous avons conçu des produits pour vous faciliter le quotidien.</p>
+                        <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                     </div>
-                    <h3>Transfert d'Argent</h3>
-                    <p>Parce que nous comprenons vos besoins de rapidité et de flexibilité, nous avons conçu des produits pour vous faciliter le quotidien.</p>
-                    <a href="service-details.html" class="readmore stretched-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- End Section Nos Services -->
+    </section><!-- End Section Nos Services -->
 
 
     <section id="" class="team section">
@@ -343,13 +343,7 @@
         </div><!-- End Container -->
 
     </form>
-</section><!-- /Contact Section -->
-
-
-
-    
-
-    <div>{{ optional(Auth::user())->name ?? 'Invité' }}</div>
+    </section><!-- /Contact Section -->
 
 
 @endsection

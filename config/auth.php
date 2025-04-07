@@ -42,11 +42,11 @@ return [
         ],
         'administrateur' => [
             'driver' => 'session',
-            'provider' => 'administrateur',
+            'provider' => 'administrateurs',
         ],
         'membre' => [
             'driver' => 'session',
-            'provider' => 'membre',
+            'provider' => 'membres',
         ],
     ],
 
@@ -72,11 +72,11 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'administrateur' => [
+        'administrateurs' => [ 
             'driver' => 'eloquent',
             'model' => App\Models\Administrateur::class,
         ],
-        'membre' => [
+        'membres' => [
             'driver' => 'eloquent',
             'model' => App\Models\Membre::class,
         ],

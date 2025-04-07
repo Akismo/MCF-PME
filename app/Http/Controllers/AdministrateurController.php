@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Administrateur;
+use Illuminate\Support\Facades\Log;
+
 
 
 
 class AdministrateurController extends Controller
 {
     public function dashboard(){
-        
-        if(Auth::guard('administrateur')->check()) {
-            return view('AdministrateurDashboard');
-        }else{
-            return response()->view('AdministrateurLogin')->header('Cache-Control','no-cache, no-store, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', '0');
+    
+        if (Auth::guard('administrateur')->check()) {
+            return response()->view('AdministrateurDashboard')
+                ->header('Cache-Control', 'no-store, no-cache, must-revalidate')
+                ->header('Pragma', 'no-cache')
+                ->header('Expires', '0');
+        } else {
+            return response()->view('AdministrateurLogin')
+                ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+                ->header('Pragma', 'no-cache')
+                ->header('Expires', '0');
         }
     }
 
@@ -42,9 +51,14 @@ class AdministrateurController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request) : RedirectResponse    
     {
-        Auth::guard('user')->logout();
+        Auth::guard('administrateur')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         return redirect()->route('administrateur_login')->with('success', 'Deconnexion effectuée');
     }
 }

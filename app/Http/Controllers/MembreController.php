@@ -12,8 +12,11 @@ class MembreController extends Controller
         
         if(Auth::guard('membre')->check()) {
             return view('MembreDashboard');
-        }else{
-            return response()->view('MembreLogin')->header('Cache-Control','no-cache, no-store, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', '0');
+        } else {
+            return response()->view('MembreLogin')
+                ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+                ->header('Pragma', 'no-cache')
+                ->header('Expires', '0');
         }
     }
 
@@ -26,7 +29,6 @@ class MembreController extends Controller
         return view('register');
     }
 
-    // Traiter l'inscription du membre
     public function register_submit(Request $request)
     {
         // Validation des champs du formulaire
@@ -42,7 +44,7 @@ class MembreController extends Controller
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
-            'mot_de_passe' => bcrypt($request->password),
+            'mot_de_passe' => $request->password,
             'date_inscription' => now(),
         ]);
 

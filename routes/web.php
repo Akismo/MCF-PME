@@ -19,7 +19,13 @@ Route::get('/service', function () {
     return view('services');
 })->name('services');
 
+Route::get('/contact', function () {
+    return view('contacts');
+})->name('contact');
 
+Route::get('/mcfpme', function () {
+    return view('mcfpmes');
+})->name('mcf-pme');
 
 
 
@@ -51,15 +57,13 @@ Route::middleware('membre')->group(function (){
 
 
 Route::prefix('administrateur')->group(function () {
-    Route::get('/login', action: [AdministrateurController::class, 'login'])->name('administrateur_login');
-    Route::get('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
-    Route::post('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
+    Route::get('/login', [AdministrateurController::class, 'login'])->name('administrateur_login');
     Route::post('/login-submit', [AdministrateurController::class, 'login_submit'])->name('administrateur_login_submit');
-});
-
-Route::middleware('administrateur')->group(function () {
-    Route::get('administrateur/dashboard', [AdministrateurController::class, 'dashboard'])->name('administrateur_dashboard');
     
+    Route::middleware(['administrateur'])->group(function () {
+        Route::get('/dashboard', [AdministrateurController::class, 'dashboard'])->name('administrateur_dashboard');
+        Route::post('/logout', [AdministrateurController::class, 'logout'])->name('administrateur_logout');
+    });
 });
 
 Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');

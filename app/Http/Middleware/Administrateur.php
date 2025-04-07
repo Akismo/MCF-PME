@@ -17,7 +17,7 @@ class Administrateur
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::guard('administrateur')->check()){
-            return redirect()->route('administrateur_login')->white('error', 'Vous n\'avez pas accés a cette zone');
+            return redirect()->route('administrateur_login')->with('error', 'Vous n\'avez pas accés a cette zone');
         }
 
         return $next($request);    }
