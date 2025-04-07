@@ -250,53 +250,7 @@
 
     </section>
 
-    
-{{-- Section Content --}}
-    <section id="" class="centre-ressources">
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Centre de Ressources</h2>
-            <p>Téléchargez nos documents d'information et guides pratiques pour une meilleure utilisation de vos services mutuels.</p>
-        </div><!-- End Section Title -->
 
-        <div class="download-grid">
-            <!-- Carte 1 -->
-            <article class="download-card">
-                <span class="badge">Nouveau</span>
-                <div class="card-header">
-                    <i class="fas fa-file-pdf file-icon"></i>
-                    <div>
-                        <h3>Guide Adhérent 2024</h3>
-                        <p>Guide complet pour les adhérents de notre service mutuel</p>
-                        <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
-                    </div>
-                </div>
-            </article>
-            <!-- Carte 2 -->
-            <article class="download-card">
-                <span class="badge">Nouveau</span>
-                <div class="card-header">
-                    <i class="fas fa-file-pdf file-icon"></i>
-                    <div>
-                        <h3>Guide Adhérent 2023</h3>
-                        <p>Guide complet pour les adhérents de notre service mutuel</p>
-                        <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
-                    </div>
-                </div>
-            </article>
-            <!-- Carte 3 -->
-            <article class="download-card">
-                <span class="badge">Nouveau</span>
-                <div class="card-header">
-                    <i class="fas fa-file-pdf file-icon"></i>
-                    <div>
-                        <h3>Guide Adhérent 2022</h3>
-                        <p>Guide complet pour les adhérents de notre service mutuel</p>
-                        <a href="#" class="download-link">Télécharger <i class="fas fa-download"></i></a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
 
 
     <section id="contact" class="contact section">

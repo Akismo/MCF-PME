@@ -33,7 +33,7 @@
                     
                     <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
                     <li><a href="{{ route('membre_login') }}">Espace Personnel</a></li>
-                    <li><a href="{{ route('team') }}" class="{{ request()->routeIs('Team') ? 'active' : 'active' }}">Team</a></li>
+                    
                     
                     <li class="dropdown">
                         
