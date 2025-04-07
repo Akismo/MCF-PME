@@ -20,9 +20,6 @@ Route::get('/service', function () {
 })->name('services');
 
 
-Route::get('/team', function () {
-    return view('team');
-})->name('team');
 
 
 
