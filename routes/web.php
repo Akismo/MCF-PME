@@ -6,13 +6,27 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Administrateur;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProduitsFinanciersController; 
 
 
 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('acceuil');
+
+Route::get('/service', function () {
+    return view('services');
+})->name('services');
+
+
+Route::get('/team', function () {
+    return view('team');
+})->name('team');
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -58,9 +72,7 @@ Route::post('/contact-submit', [ContactController::class, 'submit'])->name('cont
 
 
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+
 
 
 

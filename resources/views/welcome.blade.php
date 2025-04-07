@@ -35,28 +35,28 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="icon-box">
                     <img src="{{ asset('acceuil/assets/img/about.jpg') }}" alt="Assistance aux PME" class="img-fluid">
-                    <h4 class="title"><a href="" class="stretched-link">Assistance aux PME</a></h4>
+                    <h3>Entreprises Visionnaires</h3>
+                    <p>Management financier haute performance</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-check"></i> Analyse de rentabilité</li>
+                        <li><i class="fas fa-check"></i> Gestion de trésorerie</li>
+                        <li><i class="fas fa-check"></i> Conseil en fusion-acquisition</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Explorer <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!--End Icon Box -->
 
                 <div class="col-xl-3 col-md-6">
                     <div class="icon-box">
                     <img src="{{ asset('acceuil/assets/img/about.jpg') }}" alt="Assistance aux PME" class="img-fluid">
-                    <h4 class="title"><a href="" class="stretched-link">Produits de Prêts</a></h4>
-                    </div>
-                </div><!--End Icon Box -->
-
-                <div class="col-xl-3 col-md-6">
-                    <div class="icon-box">
-                    <img src="{{ asset('acceuil/assets/img/about.jpg') }}" alt="Assistance aux PME" class="img-fluid">
-                    <h4 class="title"><a href="" class="stretched-link">Appui et d'Encadrement(SAE)</a></h4>
-                    </div>
-                </div><!--End Icon Box -->
-
-                <div class="col-xl-3 col-md-6">
-                    <div class="icon-box">
-                    <img src="{{ asset('acceuil/assets/img/about.jpg') }}" alt="Assistance aux PME" class="img-fluid">
-                    <h4 class="title"><a href="" class="stretched-link">Produits de dépot</a></h4>
+                    <h3>Particuliers Exigeants</h3>
+                    <p>Solutions sur mesure pour gestion de patrimoine</p>
+                    <ul class="service-benefits">
+                        <li><i class="fas fa-check"></i> Audit financier personnalisé</li>
+                        <li><i class="fas fa-check"></i> Stratégie d'investissement</li>
+                        <li><i class="fas fa-check"></i> Optimisation fiscale</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Découvrir <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!--End Icon Box -->
 

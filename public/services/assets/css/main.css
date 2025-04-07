@@ -230,6 +230,43 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+/* Réduction de la hauteur de la navbar */
+.navbar {
+  padding: 10px 20px; /* Réduction du padding vertical */
+  height: 60px; /* Ajuste la hauteur totale */
+}
+
+/* Ajustement du logo */
+.navbar-brand img {
+  max-height: 40px; /* Ajuster la taille du logo */
+}
+
+/* Ajustement des liens */
+.navbar-nav .nav-link {
+  padding: 8px 12px; /* Moins d'espace autour du texte */
+  font-size: 16px; /* Taille de texte optimisée */
+}
+
+/* Réduction de l'espace sous la navbar */
+body {
+  padding-top: 60px; /* Ajuster selon la hauteur de la navbar */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+      height: 50px;
+      padding: 5px 10px;
+  }
+  .navbar-brand img {
+      max-height: 30px;
+  }
+  .navbar-nav .nav-link {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
 .header {
   --background-color: #ffffff;
   --heading-color: #0000;
@@ -288,7 +325,7 @@ h6 {
 }
 
 .header .branding {
-  min-height: 60px;
+  height: 50px;
   padding: 10px 0;
 }
 
@@ -990,7 +1027,7 @@ section,
 
 @media (min-width: 1200px) {
   .hero .icon-boxes:before {
-    content: "";
+   
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1289,100 +1326,8 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-/* Section Nos Services */
-#services {
-  padding: 60px 0;
-  background-color: #f9f9f9;
-}
 
-#services .section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-#services h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #333;
-}
-
-#services p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
-}
-
-#services .box {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#services .box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-#services .box .icon {
-  font-size: 40px;
-  color: #FFD700;
-  margin-bottom: 20px;
-}
-
-#services .box h3 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-#services .box p {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 20px;
-}
-
-#services .box .readmore {
-  color: #FFD700;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-}
-
-#services .box .readmore:hover {
-  color: #ff6200;
-}
-
-#services .d-flex {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  #services .box {
-      width: 100%;
-      max-width: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-  #services h2 {
-      font-size: 28px;
-  }
-
-  #services p {
-      font-size: 14px;
-  }
-}
-
+/* Conteneur principal */
 
 /*--------------------------------------------------------------
 # Testimonials Section
@@ -1577,66 +1522,144 @@ section,
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
-.team .member {
-  background-color: var(--surface-color);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+/* Styles de la Section Team */
+.team {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+/* En-tête de la section avec un titre et une description */
+.section-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
   text-align: center;
-  border-radius: 15px;
-  padding: 15px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-title p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+
+
+/* Styles des membres de l'équipe */
+.member {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px 20px;
 }
 
-.team .member img {
-  border-radius: 15px;
-  overflow: hidden;
+.member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.team .member .member-content {
-  padding: 0 20px 30px 20px;
-}
-
-.team .member h4 {
-  font-weight: 700;
-  margin-top: 16px;
-  margin-bottom: 2px;
-  font-size: 20px;
-}
-
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-.team .member .social {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.team .member .social a {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  transition: 0.3s;
+/* Image du membre */
+.member img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 60%);
+  margin-bottom: 20px;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.team .member .social a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+/* Nom et rôle du membre */
+.member h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.team .member .social i {
+.member span {
+  font-size: 14px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Icônes sociales */
+.social {
+  margin-top: 20px;
+}
+
+.social a {
+  margin: 0 10px;
   font-size: 18px;
-  margin: 0 2px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: #007bff;
+}
+
+/* Animation des membres */
+.member {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .member {
+    margin-bottom: 30px;
+  }
+
+  .leadership {
+    margin-bottom: 30px;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .col-xl-3,
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-xl-3,
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1652,7 +1675,7 @@ section,
 
 .pricing .pricing-item {
   background-color: var(--surface-color);
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 20px -2px rgb(252, 205, 151);
   padding: 60px 40px;
   height: 100%;
   position: relative;
