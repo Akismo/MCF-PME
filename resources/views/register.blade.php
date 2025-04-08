@@ -1,89 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devenir Membre</title>
-    <link rel="stylesheet" href="{{ asset('membrelogin/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('membrelogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('membrelogin/css/util.css') }}">
-    <link rel="stylesheet" href="{{ asset('membrelogin/css/main.css') }}">
+    <title>Inscription Membre</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{ asset('membrelogin/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ asset('membrelogin/css/style.css') }}">
 </head>
 <body>
-
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form class="login100-form validate-form" method="POST" action="{{ route('membre_register_submit') }}">
-                @csrf
-                <span class="login100-form-title p-b-26">
-                    Devenir Membre
-                </span>
-
-                <!-- Nom Input -->
-                <div class="wrap-input100 validate-input" data-validate="Entrez votre nom">
-                    <input class="input100" type="text" name="nom" value="{{ old('nom') }}" required>
-                    <span class="focus-input100" data-placeholder="Nom"></span>
-                    @error('nom')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!-- Prénom Input -->
-                <div class="wrap-input100 validate-input" data-validate="Entrez votre prénom">
-                    <input class="input100" type="text" name="prenom" value="{{ old('prenom') }}" required>
-                    <span class="focus-input100" data-placeholder="Prénom"></span>
-                    @error('prenom')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!-- Email Input -->
-                <div class="wrap-input100 validate-input" data-validate="Email valide requis">
-                    <input class="input100" type="email" name="email" value="{{ old('email') }}" required>
-                    <span class="focus-input100" data-placeholder="Email"></span>
-                    @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!-- Mot de passe Input -->
-                <div class="wrap-input100 validate-input" data-validate="Entrez votre mot de passe">
-                    <span class="btn-show-pass">
-                        <i class="zmdi zmdi-eye"></i>
-                    </span>
-                    <input class="input100" type="password" name="password" required>
-                    <span class="focus-input100" data-placeholder="Mot de passe"></span>
-                    @error('password')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!-- Soumettre Button -->
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" type="submit">
-                            S'inscrire
-                        </button>
+    <div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Inscription Membre</h2>
+                        <form method="POST" action="{{ route('membre_register_submit') }}" class="register-form" id="register-form">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Votre Nom" value="{{ old('name') }}"/>
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="prenom" id="prenom" placeholder="Votre Prénom" value="{{ old('prenom') }}"/>
+                                @error('prenom')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Votre Email" value="{{ old('email') }}"/>
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Mot de passe"/>
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte les <a href="#" class="term-service">conditions d'utilisation</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="S'inscrire"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{{ asset('membrelogin/images/signup-image.jpg') }}" alt="Image d'inscription"></figure>
+                        <a href="{{ route('membre_login') }}" class="signup-image-link">Je suis déjà membre</a>
                     </div>
                 </div>
-
-                <!-- Lien vers connexion -->
-                <div class="text-center p-t-115">
-                    <span class="txt1">
-                        Vous avez déjà un compte?
-                    </span>
-                    <a class="txt2" href="{{ route('membre_login') }}">
-                        Connexion
-                    </a>
-                </div>
-            </form>
-        </div>
+            </div>
+        </section>
     </div>
-</div>
 
-<script src="{{ asset('membrelogin/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('membrelogin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- JS -->
+    <script src="{{ asset('membrelogin/vendor/jquery.min.js') }}"></script>
+    <script src="{{ asset('membrelogin/js/main.js') }}"></script>
 </body>
 </html>

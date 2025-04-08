@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Membre;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,12 +12,15 @@ class MembreController extends Controller
     public function dashboard(){
         
         if(Auth::guard('membre')->check()) {
-            return view('MembreDashboard');
+            return response()->view('MembreDashboard')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', '0');
         } else {
             return response()->view('MembreLogin')
-                ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
-                ->header('Pragma', 'no-cache')
-                ->header('Expires', '0');
+            ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', '0');
         }
     }
 
@@ -33,18 +37,18 @@ class MembreController extends Controller
     {
         // Validation des champs du formulaire
         $request->validate([
-            'nom' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|unique:membres,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
         // Création d'un nouveau membre
         $membre = Membre::create([
-            'nom' => $request->nom,
+            'name' => $request->name,
             'prenom' => $request->prenom,
             'email' => $request->email,
-            'mot_de_passe' => $request->password,
+            'password' => $request->password,
             'date_inscription' => now(),
         ]);
 
@@ -73,9 +77,14 @@ class MembreController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request): RedirectResponse
     {
         Auth::guard('membre')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        
         return redirect()->route('membre_login')->with('success', 'Deconnexion effectuée');
     }
 }

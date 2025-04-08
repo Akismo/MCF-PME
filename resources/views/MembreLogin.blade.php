@@ -1,103 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<title>Login V2</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="membrelogin/images/icons/favicon.ico"/>
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/bootstrap/css/bootstrap.min.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/animate/animate.css') }}">
-	<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/css-hamburgers/hamburgers.min.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/animsition/css/animsition.min.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/select2/select2.min.css') }}">
-	<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/vendor/daterangepicker/daterangepicker.css') }}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/css/util.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('membrelogin/css/main.css') }}">
-	<!--===============================================================================================-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Membre</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{ asset('membrelogin/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ asset('membrelogin/css/style.css') }}">
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="{{ route('membre_login_submit') }}">
-					@csrf
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
-					</span>
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{{ asset('membrelogin/images/signin-image.jpg') }}" alt="Image de connexion"></figure>
+                        <a href="{{ route('membre_register') }}" class="signup-image-link">Créer un compte</a>
+                    </div>
 
-					<!-- Email Input -->
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="email" name="email" value="{{ old('email') }}" required>
-						<span class="focus-input100" data-placeholder="Email"></span>
-						@error('email')
-						<span class="text-danger">{{ $message }}</span>
-						@enderror
-					</div>
+                    <div class="signin-form">
+                        <h2 class="form-title">Connexion Membre</h2>
+                        @if(session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <form method="POST" action="{{ route('membre_login_submit') }}" class="register-form" id="login-form">
+                            @csrf
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Votre Email" value="{{ old('email') }}"/>
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Mot de passe"/>
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember" id="remember" class="agree-term" />
+                                <label for="remember" class="label-agree-term"><span><span></span></span>Se souvenir de moi</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Se connecter"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-					<!-- Password Input -->
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="password" required>
-						<span class="focus-input100" data-placeholder="Password"></span>
-						@error('password')
-						<span class="text-danger">{{ $message }}</span>
-						@enderror
-					</div>
-
-					<!-- Login Button -->
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit">
-								Login
-							</button>
-						</div>
-					</div>
-
-					<!-- Sign Up Link -->
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-						<a class="txt2" href="{{ route('membre_register') }}">
-							Sign Up
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	<div id="dropDownSelect1"></div>
-
-	<!-- Scripts -->
-	<script src="{{ asset('membrelogin/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/animsition/js/animsition.min.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/bootstrap/js/popper.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/select2/select2.min.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/daterangepicker/moment.min.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/daterangepicker/daterangepicker.js') }}"></script>
-	<script src="{{ asset('membrelogin/vendor/countdowntime/countdowntime.js') }}"></script>
-	<script src="{{ asset('js/main.js') }}"></script>
-
+    <!-- JS -->
+    <script src="{{ asset('membrelogin/vendor/jquery.min.js') }}"></script>
+    <script src="{{ asset('membrelogin/js/main.js') }}"></script>
 </body>
 </html>

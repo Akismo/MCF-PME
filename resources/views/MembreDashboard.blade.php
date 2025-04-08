@@ -1,61 +1,39 @@
-<x-app-layout>
-    <!-- En-tête du dashboard -->
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard Membre') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administrateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
 
-    <!-- Contenu principal du dashboard membre -->
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!-- Informations personnelles -->
-            <div class="bg-white shadow rounded-lg p-6 mb-8">
-                <h3 class="text-lg font-bold mb-4">Mes Informations Personnelles</h3>
-                <p class="mb-2"><strong>Numéro d'adhérent :</strong> {{ auth()->user()->numAdherent ?? 'N/A' }}</p>
-                <p class="mb-2"><strong>Nom :</strong> {{ auth()->user()->name }}</p>
-                <p class="mb-2"><strong>Email :</strong> {{ auth()->user()->email }}</p>
-                <!-- Ajoutez d'autres informations personnelles si nécessaire -->
-            </div>
+    <div class="flex items-center justify-between bg-blue-600 p-4 text-white">
+        <h1 class="text-xl font-bold">Bienvenue, {{ Auth::guard('membre')->user()->name }}</h1>
+        <form action="{{ route('membre_logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-600">
+                Se déconnecter
+            </button>
+        </form>
+    </div>
 
-            <!-- Mes demandes de crédit -->
-            <div class="bg-white shadow rounded-lg p-6 mb-8">
-                <h3 class="text-lg font-bold mb-4">Mes Demandes de Crédit</h3>
-                @if($creditRequests->isNotEmpty())
-                    <ul>
-                        @foreach($creditRequests as $request)
-                            <li class="border-b py-2">
-                                Demande #{{ $request->id }} - Statut : <span class="font-semibold">{{ $request->status }}</span>
-                                <span class="text-gray-500 text-sm">({{ $request->created_at->diffForHumans() }})</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p class="text-gray-500">Aucune demande de crédit soumise.</p>
-                @endif
-                <div class="mt-4">
-                    <a href="{{ route('credit.request.create') }}" class="inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
-                        Nouvelle Demande
-                    </a>
-                </div>
-            </div>
+    <div class="p-8">
+        <h2 class="text-2xl font-bold mb-4">Tableau de bord</h2>
 
-            <!-- Catalogue des produits financiers -->
-            <div class="bg-white shadow rounded-lg p-6">
-                <h3 class="text-lg font-bold mb-4">Catalogue des Produits Financiers</h3>
-                @if($financialProducts->isNotEmpty())
-                    <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        @foreach($financialProducts as $product)
-                            <li class="border p-4 rounded">
-                                <h4 class="font-bold mb-2">{{ $product->name }}</h4>
-                                <p class="text-sm text-gray-700">{{ $product->description }}</p>
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p class="text-gray-500">Aucun produit financier disponible pour le moment.</p>
-                @endif
-            </div>
+        <p>Bienvenue sur votre tableau de bord. Vous êtes connecté en tant que Membre.</p>
+
+        <!-- Ajoutez ici les informations supplémentaires que vous souhaitez afficher -->
+        <div class="mt-6">
+            <h3 class="text-xl font-semibold">Statistiques</h3>
+            <ul class="list-disc ml-6">
+                <li>Nombre d'utilisateurs enregistrés : 100</li>
+                <li>Nombre de demandes traitées : 50</li>
+                <li>Dernière connexion : {{ now()->format('d-m-Y H:i:s') }}</li>
+            </ul>
         </div>
     </div>
-</x-app-layout>
+
+</body>
+</html>
