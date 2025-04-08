@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class ProduitFinancier extends Model
 {
@@ -31,4 +32,10 @@ class ProduitFinancier extends Model
         'id' => 'integer',
         'date_creation' => 'timestamp',
     ];
+
+    public function getDateCreationAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y');  // Formatage de la date en 'd/m/Y'
+    }
 }
+

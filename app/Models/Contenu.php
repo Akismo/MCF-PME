@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Contenu extends Model
 {
@@ -20,7 +21,6 @@ class Contenu extends Model
         'type',
         'contenu',
         'date_publication',
-        'auteur_id',
         'administrateur_id',
     ];
 
@@ -31,18 +31,27 @@ class Contenu extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'date_publication' => 'timestamp',
-        'auteur_id' => 'integer',
+        'date_publication' => 'date',
         'administrateur_id' => 'integer',
     ];
 
     public function administrateur(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Administrateur::class);
     }
 
     public function auteur(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->administrateur();
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ContenuImage::class);
+    }
+
+    public function getImagePrincipaleAttribute()
+    {
+        return $this->images()->where('is_principal', true)->first();
     }
 }
