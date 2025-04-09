@@ -31,7 +31,7 @@ class DemandeCredit extends Model
         'id' => 'integer',
         'membre_id' => 'integer',
         'montant' => 'decimal:2',
-        'date_demande' => 'timestamp',
+        'date_demande' => 'date',
     ];
 
     public function membre(): BelongsTo

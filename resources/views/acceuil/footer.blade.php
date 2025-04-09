@@ -3,8 +3,8 @@
         <div class="row gy-4">
             <!-- Section Logo & Description -->
             <div class="col-lg-5 col-md-12 footer-about">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <img src="assets/img/logo.png" alt="MCF-PME Logo" width="120" class="me-2">
+                <a href="{{route('acceuil')}}" class="logo d-flex align-items-center">
+                    <img src="{{asset('acceuil/assets/img/logo.png')}}" alt="MCF-PME Logo" width="120" class="me-2">
                     <span class="sitename" style="color: #FFD700; font-weight: 700;">MCF-PME</span>
                 </a>
                 <p class="mt-3">Système de financement innovant dédié à l'inclusion bancaire en Afrique. Tradition et expertise au service du développement.</p>

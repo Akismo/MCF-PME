@@ -37,12 +37,12 @@
                                 <tr>
                                     <td>{{ $demande->id }}</td>
                                     <td>{{ $demande->membre->name }} {{ $demande->membre->prenom }}</td>
-                                    <td>{{ number_format($demande->montant, 2, ',', ' ') }} €</td>
+                                    <td>{{ number_format($demande->montant, 2, ',', ' ') }} FCFA</td>
                                     <td>{{ $demande->date_demande->format('d/m/Y') }}</td>
                                     <td>
-                                        @if($demande->statut == 'en attente')
+                                        @if($demande->statut == 'En attente')
                                             <span class="badge badge-warning">En attente</span>
-                                        @elseif($demande->statut == 'accepté')
+                                        @elseif($demande->statut == 'Approuvée')
                                             <span class="badge badge-success">Accepté</span>
                                         @else
                                             <span class="badge badge-danger">Rejeté</span>
@@ -52,7 +52,7 @@
                                         <a href="{{ route('demande-credits.show', $demande->id) }}" class="btn btn-info btn-circle btn-sm" title="Voir">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        @if($demande->statut == 'en attente')
+                                        @if($demande->statut == 'En attente')
                                             <form action="{{ route('demande-credits.accept', $demande->id) }}" method="POST" style="display: inline;">
                                                 @csrf
                                                 <button type="submit" class="btn btn-success btn-circle btn-sm" title="Accepter">

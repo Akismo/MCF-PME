@@ -26,12 +26,12 @@
                         </div>
                         <div class="col-md-6">
                             <h5>Détails de la demande</h5>
-                            <p><strong>Montant:</strong> {{ number_format($demande->montant, 2, ',', ' ') }} €</p>
+                            <p><strong>Montant:</strong> {{ number_format($demande->montant, 2, ',', ' ') }} FCFA</p>
                             <p><strong>Date demande:</strong> {{ $demande->date_demande->format('d/m/Y') }}</p>
                             <p><strong>Statut:</strong> 
-                                @if($demande->statut == 'en attente')
+                                @if($demande->statut == 'En attente')
                                     <span class="badge badge-warning">En attente</span>
-                                @elseif($demande->statut == 'accepté')
+                                @elseif($demande->statut == 'Approuvée')
                                     <span class="badge badge-success">Accepté</span>
                                 @else
                                     <span class="badge badge-danger">Rejeté</span>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
 
-                    @if($demande->statut == 'en attente')
+                    @if($demande->statut == 'En attente')
                     <div class="mt-4">
                         <form action="{{ route('demande-credits.accept', $demande->id) }}" method="POST" class="d-inline">
                             @csrf

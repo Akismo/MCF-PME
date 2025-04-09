@@ -213,7 +213,7 @@ class AdministrateurController extends Controller
 
     public function acceptCredit(DemandeCredit $demande)
     {
-        $demande->update(['statut' => 'accepté']);
+        $demande->update(['statut' => 'Approuvée']);
         
         return redirect()->route('demande-credits.index')
                          ->with('success', 'Demande de crédit acceptée avec succès.');
@@ -221,7 +221,7 @@ class AdministrateurController extends Controller
 
     public function rejectCredit(DemandeCredit $demande)
     {
-        $demande->update(['statut' => 'rejeté']);
+        $demande->update(['statut' => 'Refusée']);
         
         return redirect()->route('demande-credits.index')
                          ->with('success', 'Demande de crédit rejetée avec succès.');

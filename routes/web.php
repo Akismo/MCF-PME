@@ -41,19 +41,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('membre')->group(function (){
-    Route::get('/login',[MembreController::class, 'login'])->name('membre_login');
-    Route::get('/logout', [MembreController::class, 'logout'])->name('membre_logout');
+Route::prefix('membre')->group(function () {
+    // Routes publiques
+    Route::get('/login', [MembreController::class, 'login'])->name('membre_login');
     Route::get('/register', [MembreController::class, 'register'])->name('membre_register');
     Route::post('/register-submit', [MembreController::class, 'register_submit'])->name('membre_register_submit');
-    Route::post('/logout', [MembreController::class, 'logout'])->name('membre_logout');
     Route::post('/login-submit', [MembreController::class, 'login_submit'])->name('membre_login_submit');
+    
+    // Routes protégées
+    Route::middleware('membre')->group(function () {
+        Route::get('/dashboard', [MembreController::class, 'dashboard'])->name('membre_dashboard');
+        Route::get('/profile', [MembreController::class, 'profile'])->name('membre_profile');
+        Route::post('/profile/update', [MembreController::class, 'updateProfile'])->name('membre_profile_update');
+        
+        // Routes pour les demandes de crédit
+        Route::get('/demandes', [MembreController::class, 'demandes'])->name('membre_demandes');
+        Route::get('/demande/nouvelle', [MembreController::class, 'nouvelleDemande'])->name('membre_nouvelle_demande');
+        Route::post('/demande/soumettre', [MembreController::class, 'soumettreDemande'])->name('membre_soumettre_demande');
+        Route::get('/demande/{id}', [MembreController::class, 'showDemande'])->name('membre_demande_details');
+        Route::post('/logout', [MembreController::class, 'logout'])->name('membre_logout');
+    });
 });
 
-Route::middleware('membre')->group(function (){
-    Route::get('membre/dashboard',[MembreController::class, 'dashboard'])->name('membre_dashboard');
-
-});
 
 
 Route::prefix('administrateur')->group(function () {
