@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('role', ['president', 'caf', 'comite_credit']);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -72,13 +72,28 @@ return new class extends Migration
         // Table demande_credits
         Schema::create('demande_credits', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('type_credit', ['Ligne de crédit', 'Avance sur facture', 'Bon de commande', 'Fonds de roulement', 'AGR']);
             $table->integer('membre_id')->unsigned();
-            $table->decimal('montant', 8, 2);
+            $table->decimal('montant', 12, 2);
+            $table->text('description_projet')->nullable();
+            $table->string('duree')->nullable();
             $table->timestamp('date_demande')->nullable()->useCurrent();
             $table->enum('statut', ['En attente', 'Approuvée', 'Refusée'])->default('En attente');
+            $table->text('commentaires')->nullable();
             $table->timestamps();
 
             $table->foreign('membre_id')->references('id')->on('membres')->onDelete('cascade');
+        });
+
+        Schema::create('document_demandes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('demande_credit_id')->unsigned();
+            $table->string('type_document');
+            $table->string('chemin_fichier');
+            $table->string('nom_original');
+            $table->timestamps();
+
+            $table->foreign('demande_credit_id')->references('id')->on('demande_credits')->onDelete('cascade');
         });
     }
 
@@ -93,5 +108,6 @@ return new class extends Migration
         Schema::dropIfExists('produit_financiers');
         Schema::dropIfExists('membres');
         Schema::dropIfExists('administrateurs');
+        Schema::dropIfExists('document_demandes');
     }
 };

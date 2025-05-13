@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DocumentDemande;
 use App\Models\Membre;
 use App\Models\DemandeCredit;
 use Illuminate\Http\RedirectResponse;
@@ -63,7 +64,7 @@ class MembreController extends Controller
         Auth::guard('membre')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('membre_login')->with('success', 'Déconnexion effectuée');
     }
 
@@ -95,11 +96,11 @@ class MembreController extends Controller
     public function updateProfile(Request $request)
     {
         $membre = Auth::guard('membre')->user();
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
-            'email' => 'required|email|unique:membres,email,'.$membre->id,
+            'email' => 'required|email|unique:membres,email,' . $membre->id,
         ]);
 
         $membre->update($request->only('name', 'prenom', 'email'));
@@ -111,36 +112,71 @@ class MembreController extends Controller
     {
         $membre = Auth::guard('membre')->user();
         $demandes = $membre->demandeCredits()->latest()->get();
-        
+
         return view('membre.demandes', compact('demandes'));
     }
 
     public function nouvelleDemande()
     {
-        return view('membre.nouvelle-demande');
+        $typesCredit = [
+            'Ligne de crédit',
+            'Avance sur facture',
+            'Bon de commande',
+            'Fonds de roulement',
+            'AGR'
+        ];
+
+        return view('membre.nouvelle-demande', compact('typesCredit'));
     }
 
     public function soumettreDemande(Request $request)
     {
         $request->validate([
+            'type_credit' => 'required|in:Ligne de crédit,Avance sur facture,Bon de commande,Fonds de roulement,AGR',
             'montant' => 'required|numeric|min:100',
+            'duree' => 'required|string',
+            'description_projet' => 'required|string',
+            'documents' => 'required|array',
+            'documents.*' => 'file|mimes:pdf,jpg,png|max:2048'
         ]);
 
-        DemandeCredit::create([
+        $demande = DemandeCredit::create([
             'membre_id' => Auth::guard('membre')->id(),
+            'type_credit' => $request->type_credit,
             'montant' => $request->montant,
+            'duree' => $request->duree,
+            'description_projet' => $request->description_projet,
             'date_demande' => now(),
-            'statut' => 'En attente',
+            'statut' => 'En attente'
         ]);
 
-        return redirect()->route('membre_demandes')->with('success', 'Demande de crédit soumise avec succès');
+        foreach ($request->file('documents') as $type_document => $file) {
+            $nomOriginal = $file->getClientOriginalName(); // ✅
+            $nomFichier = time() . '_' . $nomOriginal;
+            $chemin = $file->storeAs('demandes/documents', $nomFichier, 'public');
+
+            DocumentDemande::create([
+                'demande_credit_id' => $demande->id,
+                'type_document' => $type_document,
+                'chemin_fichier' => $chemin,
+                'nom_original' => $nomOriginal, // ✅ maintenant fourni
+            ]);
+        }
+
+
+
+
+        return redirect()->route('membre_demandes')
+            ->with('success', 'Demande soumise avec succès');
     }
 
     public function showDemande($id)
     {
-        $demande = DemandeCredit::where('membre_id', Auth::guard('membre')->id())
-                            ->findOrFail($id);
-        
+        $demande = DemandeCredit::with('documents')
+            ->where('membre_id', Auth::guard('membre')->id())
+            ->findOrFail($id);
+
         return view('membre.demande-details', compact('demande'));
     }
+
 }

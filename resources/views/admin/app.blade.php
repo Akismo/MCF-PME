@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +14,7 @@
 
     @stack('styles')
 </head>
+
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -21,45 +23,80 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <hr class="sidebar-divider my-0">
 
-            <!-- Dashboard -->
+            @php
+                $admin = Auth::guard('administrateur')->user();
+                $dashboardRoute = '#';
+
+                if ($admin) {
+                    if ($admin->role === 'president') {
+                        $dashboardRoute = route('administrateur_dashboard');
+                    } elseif ($admin->role === 'comite_credit') {
+                        $dashboardRoute = route('comite-credit.dashboard');
+                    } elseif ($admin->role === 'caf') {
+                        $dashboardRoute = route('dashboard.caf');
+                    }
+                }
+            @endphp
+
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('administrateur_dashboard') }}">
+                <a class="nav-link" href="{{ $dashboardRoute }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de bord</span>
                 </a>
             </li>
 
+
             <hr class="sidebar-divider">
             <div class="sidebar-heading">Interface</div>
+            
+            @if ($admin->role === 'president')
+                <!-- Liens -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('produits-financiers.index') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Produits Financiers</span>
+                    </a>
+                </li>
 
-            <!-- Liens -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('produits-financiers.index') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Produits Financiers</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('demande-credits.index')}}">
+                        <i class="fas fa-fw fa-file-alt"></i>
+                        <span>Demande de crédits</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('demande-credits.index')}}">
-                    <i class="fas fa-fw fa-file-alt"></i>
-                    <span>Demande de crédits</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('membres.index') }}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Membres</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('membres.index') }}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Membres</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.contenus.index')}}">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Contenu</span>
+                    </a>
+                </li>
+            @endif
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.contenus.index')}}">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Contenu</span>
-                </a>
-            </li>
+            @if ($admin->role === 'caf')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('caf.index') }}">
+                        <i class="fas fa-fw fa-check-circle"></i>
+                        <span>Vérification CAF</span>
+                    </a>
+                </li>
+            @endif
+            
+            @if ($admin->role === 'comite_credit')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('comite-credit.index') }}">
+                        <i class="fas fa-fw fa-chart-pie"></i>
+                        <span>Comité de Crédit</span>
+                    </a>
+                </li>
+            @endif
 
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -86,8 +123,8 @@
                     <!-- Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                   placeholder="Rechercher..." aria-label="Search">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
+                                aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -101,14 +138,15 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     {{ Auth::guard('administrateur')->user()->name ?? 'Administrateur' }}
                                 </span>
-                                <img class="img-profile rounded-circle" src="{{ asset('admindashboard/img/undraw_profile.svg') }}">
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('admindashboard/img/undraw_profile.svg') }}">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                 aria-labelledby="userDropdown">
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Déconnexion
@@ -135,8 +173,8 @@
     <!-- End Page Wrapper -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-         aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="{{ route('administrateur_logout') }}" method="POST" class="modal-content">
                 @csrf
@@ -163,4 +201,5 @@
 
     @stack('scripts')
 </body>
+
 </html>
